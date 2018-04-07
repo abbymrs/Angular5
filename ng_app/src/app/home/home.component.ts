@@ -10,12 +10,12 @@ import {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
   lang:string;
   constructor(
     public state: StateService,
     private apiService: ApiService,
-    
   ) {}
 
   ngOnInit() {
@@ -31,6 +31,5 @@ export class HomeComponent implements OnInit {
     } else {
       this.state.lang = 'en-us';
     }
-    console.log(this.state.lang);
   }
 }
