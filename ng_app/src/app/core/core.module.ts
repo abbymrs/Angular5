@@ -7,7 +7,9 @@ import {
   StateService,
   ConfigService,
   ApiService,
-  LoadingIndicatorService
+  LoadingIndicatorService,
+  AuthGuardService,
+  AuthService
 } from "./service";
 
 @NgModule({
@@ -20,7 +22,9 @@ import {
     StateService,
     ConfigService,
     ApiService,
-    LoadingIndicatorService
+    LoadingIndicatorService,
+    AuthGuardService,
+    AuthService
   ]
 })
 export class CoreModule { }

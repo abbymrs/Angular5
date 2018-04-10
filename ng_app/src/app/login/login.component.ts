@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { StateService } from "../core";
+import { StateService, ApiService, AuthService } from "../core";
 
 @Component({
   selector: 'app-login',
@@ -9,10 +9,23 @@ import { StateService } from "../core";
 })
 export class LoginComponent implements OnInit {
 
-  lang: string = '';
-  constructor(public state: StateService) { }
+  constructor(
+    private apiService: ApiService,
+    private auth: AuthService,
+    public state: StateService
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
+  login(data: any): void {
+    this.apiService.login(data)
+      .subscribe((res: any) => {
+        this.state.popupMessage = res.message;
 
+        if(res.status === 1){ // login successfully
+          this.auth.loginSuccess();
+        }
+        
+      });
+  }
 }

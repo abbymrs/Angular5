@@ -15,7 +15,7 @@
     </nav>
     <router-outlet></router-outlet>
     
-    <app-popup [message]="popupMsg" [hidden]="true"></app-popup>
+    <app-popup [message]="state.popupMessage" [hidden]="true"></app-popup>
   </section>
   <div [hidden]="!(isLoading|async)">loading......</div>
 </div>

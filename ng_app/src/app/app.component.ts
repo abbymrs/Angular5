@@ -10,7 +10,6 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AppComponent {
   title = 'app';
-  popupMsg: string = 'test popup message~';
   isLoading: Observable<boolean>;
 
   constructor(

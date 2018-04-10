@@ -1,4 +1,15 @@
-<p>
-  login works!
-</p>
-<div>login language: {{state.lang}}</div>
+<form novalidate #loginForm="ngForm">
+  <div class="form-group">
+    <label for="name">User Name:</label>
+    <input type="text" ngModel name="name" #userName="ngModel" id="name" class="form-control" required>
+    <div *ngIf="userName.touched && userName.invalid" class="error">The field is required!</div>
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" ngModel name="pwd" #pwd="ngModel" id="pwd" class="form-control" required>
+    <div *ngIf="pwd.touched && pwd.invalid" class="error">The field is required!</div>
+  </div>
+  <div class="form-group">
+    <input type="submit" class="btn btn-primary" value="Login" [disabled]="loginForm.invalid" (click)="login(loginForm.value)">
+  </div>
+</form>

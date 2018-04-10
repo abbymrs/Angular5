@@ -17,9 +17,16 @@ export class ApiService {
 
     getUsers(): Observable<any> {
         return this.http.get(`${this.config.basedUrl}users`)
-            .pipe(
-                catchError(this.handleError)
-            )
+                    .pipe(
+                        catchError(this.handleError)
+                    )
+    }
+
+    login(data:any): Observable<any> {
+        return this.http.post(`${this.config.basedUrl}users/login`, data)
+                    .pipe(
+                        catchError(this.handleError)
+                    )
     }
 
     private handleError(err: HttpErrorResponse) {
