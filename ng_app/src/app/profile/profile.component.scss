@@ -1,0 +1,8 @@
+swiper {
+    display: block;
+    height: 400px;
+    .swiper-slide {
+        border: 1px solid red;
+        width: 60% !important;
+    }
+}
