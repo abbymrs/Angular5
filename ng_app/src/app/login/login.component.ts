@@ -24,6 +24,9 @@ export class LoginComponent implements OnInit {
 
         if(res.status === 1){ // login successfully
           this.auth.loginSuccess();
+          localStorage.setItem('isLogin', 'true');
+        } else {
+          localStorage.setItem('isLogin', 'false');
         }
         
       });

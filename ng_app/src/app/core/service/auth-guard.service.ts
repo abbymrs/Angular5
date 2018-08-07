@@ -20,7 +20,10 @@ export class AuthGuardService implements CanActivate{
     }
 
     checkLogin(url:string): Observable<boolean>{
-        if(this.state.isLogin) return Observable.of(true);
+        let timeout = 1000 * 60 * 60;
+        if(Date.now() - this.state.startTime > timeout) localStorage.removeItem('isLogin');
+        let isLogin = localStorage.getItem('isLogin');
+        if(this.state.isLogin || (isLogin && isLogin==='true')) return Observable.of(true);
 
         this.state.redirectUrl = url;
         this.router.navigate(['/login']);

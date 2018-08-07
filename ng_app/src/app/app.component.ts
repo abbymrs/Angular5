@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { StateService, LoadingIndicatorService } from "./core";
 import { Observable } from 'rxjs/Observable';
@@ -8,9 +8,10 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
   isLoading: Observable<boolean>;
+  startTime: number = Date.now();
 
   constructor(
     public state: StateService,
@@ -18,5 +19,8 @@ export class AppComponent {
   ){
     this.isLoading = this.loadingIndicatorService.onLoadingOnChanged;
   }
-
+  ngOnInit(): void {
+    this.state.startTime = this.startTime;
+    
+  }
 }

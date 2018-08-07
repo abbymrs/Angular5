@@ -6,7 +6,8 @@ export class StateService {
     isLogin: boolean = false;
     lang: string = 'en-us';
     popupMessage: string;
-    redirectUrl: string;
+    redirectUrl: string = '/home';
+    startTime: number;
 
     constructor() { }
 }
