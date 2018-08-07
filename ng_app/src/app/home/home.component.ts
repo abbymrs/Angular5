@@ -13,6 +13,7 @@ import {
 
 export class HomeComponent implements OnInit {
   lang:string;
+  users = <any>[];
   constructor(
     public state: StateService,
     private apiService: ApiService,
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
     this.apiService.getUsers()
       .subscribe(res=>{
         // console.log(res);
+        this.users = res;
       });
   }
 
@@ -31,5 +33,9 @@ export class HomeComponent implements OnInit {
     } else {
       this.state.lang = 'en-us';
     }
+  }
+  getClassName(item){
+    console.log(item.name)
+    return item.name;
   }
 }

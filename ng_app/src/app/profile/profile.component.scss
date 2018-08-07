@@ -1,8 +1,6 @@
-swiper {
+.swiper-container {
     display: block;
     height: 400px;
-    .swiper-slide {
-        border: 1px solid red;
-        width: 60% !important;
-    }
+    line-height: 400px;
+    text-align: center;
 }

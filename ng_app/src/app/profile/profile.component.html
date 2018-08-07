@@ -1,8 +1,11 @@
 <p>
     profile works!
 </p>
-<swiper [config]="config">
-    <div *ngFor="let item of banners">
-        {{item.name}}
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let silde of banners">{{silde.name}}</div>
     </div>
-</swiper>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>

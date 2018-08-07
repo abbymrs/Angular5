@@ -1,3 +1,4 @@
 <p>
-  home works!
+    home works!
 </p>
+<div *ngFor="let user of users" [ngClass]="[getClassName(user)]">{{user.name}}</div>
