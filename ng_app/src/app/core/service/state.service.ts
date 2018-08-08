@@ -8,6 +8,7 @@ export class StateService {
     popupMessage: string;
     redirectUrl: string = '/home';
     startTime: number;
+    viewContainer: any;
 
     constructor() { }
 }

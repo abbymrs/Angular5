@@ -7,6 +7,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { CoreModule } from "./core";
 import { SharedModule } from "./shared";
 import { httpInterceptorProviders } from "./interceptor";
+import { PopupComponent } from "./shared/components/popup/popup.component";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,9 @@ import { httpInterceptorProviders } from "./interceptor";
   providers: [
     httpInterceptorProviders
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    PopupComponent
+  ]
 })
 export class AppModule { }

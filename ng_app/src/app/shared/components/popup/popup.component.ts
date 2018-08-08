@@ -1,17 +1,47 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  Injectable,
+  OnInit,
+  ComponentFactoryResolver,
+  ViewEncapsulation
+} from "@angular/core";
 
-@Component({
-  selector: 'app-popup',
-  templateUrl: './popup.component.html',
-  styleUrls: ['./popup.component.scss']
-})
-export class PopupComponent implements OnInit {
+import { StateService } from "../../../core/service";
 
-  @Input() message:string;
+@Injectable()
+export class PopupService {
+  constructor(
+    public state: StateService,
+    private componentFactoryResolver: ComponentFactoryResolver
+  ) {}
 
-  constructor() { }
-
-  ngOnInit() {
+  open(): void {
+    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(
+      PopupComponent
+    );
+    console.log(this.state.viewContainer);
+    let viewContainerRef = this.state.viewContainer;
+    viewContainerRef.clear();
+    viewContainerRef.createComponent(componentFactory);
   }
 
+  close(): void {
+    this.state.viewContainer.clear();
+  }
+}
+
+@Component({
+  selector: "app-popup",
+  encapsulation: ViewEncapsulation.None,
+  templateUrl: "./popup.component.html",
+  styleUrls: ["./popup.component.scss"]
+})
+export class PopupComponent implements OnInit {
+  constructor(public state: StateService, private popupService: PopupService) {}
+
+  ngOnInit() {}
+
+  close() {
+    this.popupService.close();
+  }
 }
