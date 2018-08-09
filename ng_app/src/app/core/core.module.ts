@@ -9,7 +9,8 @@ import {
   ApiService,
   LoadingIndicatorService,
   AuthGuardService,
-  AuthService
+  AuthService,
+  CacheService
 } from "./service";
 
 @NgModule({
@@ -24,7 +25,8 @@ import {
     ApiService,
     LoadingIndicatorService,
     AuthGuardService,
-    AuthService
+    AuthService,
+    CacheService
   ]
 })
 export class CoreModule { }
