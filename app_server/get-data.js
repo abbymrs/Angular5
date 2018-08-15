@@ -30,6 +30,7 @@ function getGoodsListData(num, resolve) {
             let li = ul.children();
             li.each((idx, item) => {
                 let obj = {
+                    sku: $(item).find('.productSKU').html().substring(4),
                     imgUrl: $(item).find('.productImg img').attr('data-original'),
                     discountNo: $(item).find('.productImg .icon_sale em').html(),
                     title: $(item).find('.productTitle').html(),
