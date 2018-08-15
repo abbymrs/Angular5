@@ -13,10 +13,10 @@ export class HomeComponent implements OnInit {
   lang: string;
   users = <any>[];
   constructor(
-      public state: StateService, 
-      private apiService: ApiService,
-      private popupService: PopupService
-    ) {}
+    public state: StateService,
+    private apiService: ApiService,
+    private popupService: PopupService
+  ) {}
 
   ngOnInit() {
     this.apiService.getUsers().subscribe(res => {
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
     }
   }
   open(): void {
-      this.state.popupMessage = 'test popup message';
+    this.state.popupMessage = "test popup message";
     this.popupService.open();
   }
 }

@@ -15,11 +15,10 @@ export class PopupService {
     private componentFactoryResolver: ComponentFactoryResolver
   ) {}
 
-  open(): void {
-    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-      PopupComponent
-    );
-    console.log(this.state.viewContainer);
+  open(component?: any): void {
+    let c = component ? component : PopupComponent;
+    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(c);
+
     let viewContainerRef = this.state.viewContainer;
     viewContainerRef.clear();
     viewContainerRef.createComponent(componentFactory);
